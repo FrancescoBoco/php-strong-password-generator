@@ -1,6 +1,6 @@
 <?php
 // GENERATORE RANDOM DI TRINGHE 
-function generateRandomString($length = 10) {
+function generateRandomString($length) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $charactersLength = strlen($characters);
     $randomString = '';
@@ -9,7 +9,19 @@ function generateRandomString($length = 10) {
     }
     return $randomString;
 }
-echo generateRandomString(10);
+if(isset($_GET['password-length'])){
+echo generateRandomString($_GET['password-length']);
+}
+
+
+
+if( isset($_GET['password-length']) ){
+    $input = $_GET['password-length'];
+// var_dump($_GET['password-length']);
+
+}
+// if(isset($_GET['password-length']) != )
+
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +48,53 @@ echo generateRandomString(10);
         </header>
 
         <main>
-            
+            <div class="container">
+                <div class="row">
+                    <div class="col-6">
+                        <form class="row g-3" method="GET">
+                            <!-- TEXT INPUT  -->
+                            <input class="form-control form-control-lg" type="number" placeholder="Lunghezza della password" aria-label=".form-control-lg example" name="password-length">
+                            <!-- RADIO BUTTON  -->
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="yes" id="flexRadioDefault1" checked>
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                   SI
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="no" id="flexRadioDefault2" >
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                   NO
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Lettere
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    Numeri
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Simboli 
+                                </label>
+                            </div>
+                            <!-- SUBMIT BUTTON  -->
+                            <div class="col-auto">
+                                <button type="submit" class="btn btn-primary mb-3">INVIA </button>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
         </main>
 
         <footer>
