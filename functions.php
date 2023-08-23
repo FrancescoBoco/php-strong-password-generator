@@ -9,17 +9,4 @@ function generateRandomString($length) {
     }
     return $randomString;
 }
-if(isset($_GET['password-length'])){
-echo generateRandomString($_GET['password-length']);
-}
-
-
-
-if( isset($_GET['password-length']) ){
-    $input = $_GET['password-length'];
-// var_dump($_GET['password-length']);
-
-}
-// if(isset($_GET['password-length']) != )
-
 ?>

@@ -1,5 +1,16 @@
 <?php
-include __DIR__ .'/functions.php';
+session_start();
+
+include_once __DIR__ .'/functions.php';
+// isset($_SESSION['password-length'])
+
+print_r($_SESSION);
+
+if(isset($_GET['password-length'])) {
+    $_SESSION['password-length'] = $_GET['password-length'];
+    header('Location: /php-strong-password-generator/homepage.php');
+}
+    
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +40,7 @@ include __DIR__ .'/functions.php';
             <div class="container">
                 <div class="row">
                     <div class="col-6">
-                        <form class="row g-3" method="GET">
+                        <form class="row g-3" method="GET" action="">
                             <!-- TEXT INPUT  -->
                             <input class="form-control form-control-lg" type="number" placeholder="Lunghezza della password" aria-label=".form-control-lg example" name="password-length">
                             <!-- RADIO BUTTON  -->
@@ -72,6 +83,7 @@ include __DIR__ .'/functions.php';
                         </form>
                     </div>
                 </div>
+               
             </div>
         </main>
 
